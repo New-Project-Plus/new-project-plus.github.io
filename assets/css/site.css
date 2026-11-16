@@ -1,0 +1,109 @@
+/* New Project Plus: graphite on graph paper (light), chalk on slate (dark). */
+:root {
+  --bg: #F6F4EE;
+  --paper: #FFFEFA;
+  --ink: #2B2B2B;
+  --ink-soft: #6B6861;
+  --muted: #9A978F;
+  --grid: rgba(154, 151, 143, .22);
+  --display: "Chalkboard SE", "Ink Free", casual, cursive;
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1E2120;
+    --paper: #262A28;
+    --ink: #E8E6DF;
+    --ink-soft: #A4A7A3;
+    --muted: #7D817E;
+    --grid: rgba(125, 129, 126, .22);
+  }
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: var(--ink);
+  font-family: var(--body);
+  line-height: 1.5;
+}
+a { color: inherit; }
+.display { font-family: var(--display); font-weight: 400; }
+.mono { font-family: var(--mono); }
+.soft { color: var(--ink-soft); }
+
+/* Pencil outline: a wobbly line on a pseudo-element (filter #pencil is inline in each page), so text stays crisp. */
+.sketch { position: relative; background: var(--paper); }
+.sketch::before, .sketch.doubled::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  border: 2px solid var(--ink); filter: url(#pencil);
+}
+.sketch.doubled::after { transform: translate(3px, 2.5px); z-index: -1; }
+.sketch.dashed::before { border-style: dashed; border-color: var(--muted); }
+
+/* ---------- home ---------- */
+.home { flex: 1; display: grid; place-items: center; padding: 48px 20px; }
+.home .wrap { width: 100%; max-width: 620px; text-align: center; }
+.home .logo { display: block; width: 132px; height: 132px; margin: 0 auto; }
+.home h1 { font-size: clamp(34px, 7vw, 52px); line-height: 1.05; margin: 14px 0 6px; }
+.tag { font-size: 18px; margin: 0 0 36px; }
+
+.folder { max-width: 480px; margin: 0 auto 36px; text-align: left; position: relative; padding-top: 30px; }
+.folder .tab { position: absolute; top: 0; left: 0; padding: 4px 16px 6px; font-size: 13px; letter-spacing: .12em; }
+.folder .body { display: grid; grid-template-columns: 140px 1fr; gap: 22px; align-items: center; padding: 22px; }
+.photo { aspect-ratio: 1; display: grid; place-items: center; padding: 12px; }
+.photo .q { position: absolute; right: 8px; bottom: 4px; font-size: 22px; }
+.silhouette {
+  display: block; width: 100%; aspect-ratio: 62 / 61; background: var(--ink);
+  -webkit-mask: url(../img/file-001.svg) center / contain no-repeat;
+  mask: url(../img/file-001.svg) center / contain no-repeat;
+}
+.fields { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 0; font-family: var(--mono); font-size: 14px; }
+.fields dt { color: var(--ink-soft); letter-spacing: .08em; }
+.fields dd { margin: 0; }
+@media (max-width: 480px) {
+  .folder .body { grid-template-columns: 1fr; }
+  .photo { width: 100%; max-width: 180px; margin: 0 auto; }
+}
+
+/* Button: paper box with a doubled pencil outline that presses in. */
+.btn {
+  position: relative; display: inline-block; padding: 10px 26px; border: 0; cursor: pointer;
+  font: inherit; font-family: var(--display); font-size: 20px; color: var(--ink); text-decoration: none;
+  background: var(--paper); transition: transform .08s;
+}
+.btn::before, .btn::after { content: ""; position: absolute; inset: 0; border: 2px solid var(--ink); filter: url(#pencil); }
+.btn::after { transform: translate(3px, 2.5px); z-index: -1; transition: transform .08s; }
+.btn:hover { transform: translate(-1px, -1px); }
+.btn:active { transform: translate(3px, 2.5px); }
+.btn:active::after { transform: none; }
+.btn:focus-visible { outline: 2px dashed var(--ink-soft); outline-offset: 6px; }
+
+#confetti { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+
+/* ---------- document pages (privacy) ---------- */
+.top { padding: 16px 20px; }
+.top a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--display); font-size: 20px; }
+.top img { width: 48px; height: 48px; }
+.doc { flex: 1; width: 100%; max-width: 720px; margin: 0 auto; padding: 8px 20px 48px; }
+.doc .sheet { padding: 28px clamp(18px, 4vw, 40px); }
+.doc h1 { font-size: clamp(30px, 6vw, 40px); line-height: 1.1; margin: 0 0 4px; }
+.doc h2 { font-size: 22px; margin: 26px 0 4px; }
+.doc .meta { margin: 0 0 18px; font-size: 14px; }
+
+footer.site { text-align: center; color: var(--ink-soft); font-size: 13px; padding: 24px 16px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn, .btn::after { transition: none; }
+}

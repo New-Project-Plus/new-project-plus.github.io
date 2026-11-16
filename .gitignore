@@ -1,0 +1,4 @@
+# Local-only: hidden folders and AI assistant instructions never go in this public repo
+.*/
+CLAUDE.*
+AGENTS.*
