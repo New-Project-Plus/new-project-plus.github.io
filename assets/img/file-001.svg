@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="24.2 20.03 61.9 60.6" role="img" aria-label="File 001: a mystery project">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="15 15 84 84" role="img" aria-label="File 001: a mystery project">
 <filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="0.9"/><feComponentTransfer><feFuncA type="table" tableValues="0 0 0 0 0.5 1 1 1 1"/></feComponentTransfer></filter>
-<g filter="url(#soft)">
+<clipPath id="icon"><rect x="18" y="18" width="72" height="72"/></clipPath>
+<g clip-path="url(#icon)"><g filter="url(#soft)">
+<g transform="translate(54 54) scale(2.3) translate(-38 -36)">
+<path d="M60.88,-10L60.88,46.01" fill="none" stroke="#111" stroke-width="1.5"/>
 <path d="M74.5,49.96L76.08,49.89L76.87,51.66L77.82,53.37L78.81,55.05L79.68,56.79L80.26,58.93L78.31,59.62L77.69,57.59L77.1,55.56L76.1,53.68L75.17,51.77Z" fill="#111" stroke="#111" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M77.95,58.76L77.04,60.32L76.38,61.98M78.45,58.93L78.64,60.81L78.73,62.69M79.81,58.63L80.35,60.23L81.08,61.75" fill="none" stroke="#111" stroke-width="1.0" stroke-linejoin="round" stroke-linecap="round"/>
 <path d="M49.13,65.05L50.53,64.89L52.07,64.81L52.24,66.78L52.27,68.75L52.1,70.73L51.8,72.7L51.95,74.34L50.53,74.4L49.3,74.67L49.04,72.7L48.81,70.73L48.76,68.75L48.93,66.78Z" fill="#111" stroke="#111" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round"/>
@@ -23,4 +26,8 @@
 <path d="M46.6 45.6H75.3V52H46.6Z" fill="#111"/>
 <path d="M41.6 52.6L47 49.2L49.6 66L48.9 71.5Z" fill="#111" stroke="#111" stroke-width="1.7" stroke-linejoin="round"/>
 </g>
+<path d="M26.51,29.91L33.09,27.51L35.49,34.09L28.91,36.49Z" fill="#111"/>
+<path d="M75.31,28.35L81.65,31.31L78.69,37.65L72.35,34.69Z" fill="#111"/>
+<path d="M77.70,44.02L83.98,45.70L82.30,51.98L76.02,50.30Z" fill="#111"/>
+</g></g>
 </svg>

@@ -65,7 +65,7 @@ a { color: inherit; }
 .photo { aspect-ratio: 1; display: grid; place-items: center; padding: 12px; }
 .photo .q { position: absolute; right: 8px; bottom: 4px; font-size: 22px; }
 .silhouette {
-  display: block; width: 100%; aspect-ratio: 62 / 61; background: var(--ink);
+  display: block; width: 100%; aspect-ratio: 1; background: var(--ink);
   -webkit-mask: url(../img/file-001.svg) center / contain no-repeat;
   mask: url(../img/file-001.svg) center / contain no-repeat;
 }
